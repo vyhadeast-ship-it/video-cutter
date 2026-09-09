@@ -1,55 +1,428 @@
-# Video Cutter
+<!DOCTYPE html>
 
-## Turn videos into vertical short-form content
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Video Cutter - Transform videos into vertical short-form content and publish to social media.">
+    <title>Video Cutter</title>
 
-Video Cutter is a desktop application designed to help creators transform video content into vertical short-form videos suitable for modern social media platforms.
+```
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-The application can download video content from a provided source, convert it to a vertical 9:16 format, process the video into shorter clips, and prepare the resulting content for publication on supported social media platforms.
+    html {
+        scroll-behavior: smooth;
+    }
 
-### Features
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #08090d;
+        color: #f5f5f7;
+        line-height: 1.6;
+    }
 
-**Video processing**
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 
-Video Cutter automatically processes videos into a vertical 9:16 format designed for short-form platforms.
+    .container {
+        width: min(1100px, 92%);
+        margin: auto;
+    }
 
-**Clip creation**
+    header {
+        border-bottom: 1px solid #20222b;
+        background: rgba(8, 9, 13, 0.92);
+    }
 
-Long videos can be divided into shorter clips so creators can work with individual pieces of content.
+    .nav {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-**Automatic titles and hashtags**
+    .logo {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
 
-Video Cutter can generate suggested titles and hashtags for the resulting clips.
+    .logo span {
+        color: #7c5cff;
+    }
 
-**Social media publishing**
+    .nav-links {
+        display: flex;
+        gap: 28px;
+        color: #a8abb8;
+        font-size: 14px;
+    }
 
-Video Cutter is designed to allow users to publish their processed videos to supported social media platforms, including TikTok.
+    .nav-links a:hover {
+        color: white;
+    }
 
-When publishing through an integrated platform, the user remains in control of the content and the account to which it is published.
+    .hero {
+        padding: 110px 0 100px;
+        text-align: center;
+        background:
+            radial-gradient(circle at top, rgba(124, 92, 255, 0.20), transparent 45%);
+    }
 
-### TikTok integration
+    .badge {
+        display: inline-block;
+        padding: 7px 14px;
+        border: 1px solid #30295a;
+        border-radius: 999px;
+        background: #11101c;
+        color: #a995ff;
+        font-size: 13px;
+        margin-bottom: 24px;
+    }
 
-Video Cutter uses TikTok's Content Posting API to allow authorized users to publish video content directly to their TikTok account.
+    h1 {
+        font-size: clamp(42px, 7vw, 76px);
+        line-height: 1.05;
+        letter-spacing: -3px;
+        max-width: 850px;
+        margin: auto;
+    }
 
-The user must explicitly authorize the application and approve the publishing action. Video Cutter does not publish content to a user's TikTok account without the user's action and authorization.
+    .hero h1 span {
+        color: #8b6cff;
+    }
 
-### User control
+    .hero p {
+        max-width: 680px;
+        margin: 28px auto 0;
+        color: #a8abb8;
+        font-size: 18px;
+    }
 
-Video Cutter is designed so that users maintain control over the content they create and publish.
+    .button {
+        display: inline-block;
+        margin-top: 34px;
+        padding: 14px 25px;
+        border-radius: 10px;
+        background: #7c5cff;
+        color: white;
+        font-weight: 700;
+    }
 
-Before publishing content through an integrated platform, users can review the generated content and publishing information.
+    .button:hover {
+        background: #6d4cf0;
+    }
 
-### Contact
+    section {
+        padding: 85px 0;
+    }
 
-For questions, technical support, or privacy-related requests, please contact:
+    .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
 
-**[vyhadeast@gmail.com](mailto:vyhadeast@gmail.com)**
+    .section-title h2 {
+        font-size: 36px;
+        margin-bottom: 12px;
+    }
 
----
+    .section-title p {
+        color: #8e919e;
+    }
 
-### Legal
+    .features {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
 
-**Privacy Policy**
+    .card {
+        background: #101117;
+        border: 1px solid #20222b;
+        border-radius: 16px;
+        padding: 28px;
+    }
 
-**Terms of Service**
+    .icon {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 11px;
+        background: #1b1730;
+        color: #a995ff;
+        font-size: 21px;
+        margin-bottom: 20px;
+    }
 
-© 2026 Video Cutter. All rights reserved.
+    .card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        color: #9295a2;
+        font-size: 14px;
+    }
+
+    .integration {
+        background: #0d0e13;
+    }
+
+    .integration-box {
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+        background: #111219;
+        border: 1px solid #252733;
+        border-radius: 20px;
+        padding: 55px 35px;
+    }
+
+    .integration-box h2 {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .integration-box p {
+        color: #9b9eaa;
+        max-width: 650px;
+        margin: auto;
+    }
+
+    .notice {
+        margin-top: 25px;
+        padding: 18px;
+        border-radius: 12px;
+        background: #17151f;
+        color: #b8b3c9;
+        font-size: 14px;
+    }
+
+    .contact {
+        text-align: center;
+    }
+
+    .contact p {
+        color: #999ca8;
+        margin-top: 12px;
+    }
+
+    footer {
+        border-top: 1px solid #20222b;
+        padding: 30px 0;
+        color: #777b89;
+        font-size: 13px;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 22px;
+    }
+
+    .footer-links a:hover {
+        color: white;
+    }
+
+    @media (max-width: 800px) {
+        .features {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .nav-links {
+            gap: 14px;
+        }
+    }
+
+    @media (max-width: 550px) {
+        .features {
+            grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .hero {
+            padding: 80px 0;
+        }
+
+        .footer-content {
+            flex-direction: column;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <a href="index.html" class="logo">Video<span>Cutter</span></a>
+
+```
+    <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#tiktok">TikTok</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</div>
+```
+
+</header>
+
+<main>
+
+```
+<section class="hero">
+    <div class="container">
+        <div class="badge">Desktop video processing tool</div>
+
+        <h1>
+            Turn videos into
+            <span>short-form content.</span>
+        </h1>
+
+        <p>
+            Video Cutter helps creators transform long-form videos
+            into vertical short-form clips ready for social media.
+        </p>
+
+        <a href="#features" class="button">Explore Video Cutter</a>
+    </div>
+</section>
+
+<section id="features">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Everything in one workflow</h2>
+            <p>Process your videos and prepare them for short-form platforms.</p>
+        </div>
+
+        <div class="features">
+
+            <div class="card">
+                <div class="icon">▶</div>
+                <h3>Video Processing</h3>
+                <p>
+                    Process video content and convert it into a format
+                    suitable for vertical short-form platforms.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">▣</div>
+                <h3>Clip Creation</h3>
+                <p>
+                    Automatically divide processed videos into shorter
+                    clips ready to be published.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">✦</div>
+                <h3>Titles & Hashtags</h3>
+                <p>
+                    Generate English title suggestions and relevant
+                    hashtags for your short-form content.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">↗</div>
+                <h3>Social Publishing</h3>
+                <p>
+                    Connect supported social platforms and publish
+                    processed clips with user authorization.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="tiktok" class="integration">
+    <div class="container">
+
+        <div class="integration-box">
+            <div class="badge">TikTok integration</div>
+
+            <h2>Publish directly to TikTok</h2>
+
+            <p>
+                Video Cutter can integrate with TikTok through the
+                official TikTok Content Posting API. Authorized users
+                can send processed videos to TikTok directly from the
+                application.
+            </p>
+
+            <div class="notice">
+                Video Cutter does not publish content to TikTok without
+                user authorization and an explicit publishing action.
+                Users remain in control of the content they choose to publish.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="container contact" id="contact">
+
+        <div class="section-title">
+            <h2>Contact</h2>
+            <p>
+                Questions about Video Cutter or its integrations?
+            </p>
+        </div>
+
+        <p>
+            <a href="mailto:vyhadeast@gmail.com">
+                vyhadeast@gmail.com
+            </a>
+        </p>
+
+    </div>
+</section>
+```
+
+</main>
+
+<footer>
+    <div class="container footer-content">
+
+```
+    <div>
+        © 2026 Video Cutter. All rights reserved.
+    </div>
+
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+    </div>
+
+</div>
+```
+
+</footer>
+
+</body>
+</html>
